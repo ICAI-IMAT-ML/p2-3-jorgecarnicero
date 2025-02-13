@@ -81,13 +81,13 @@ class LinearRegressor:
         """
         if self.coefficients is None or self.intercept is None:
             raise ValueError("Model is not yet fitted")
-
+        
         if np.ndim(X) == 1:
             # Predict when X is only one variable
             predictions = X * self.coefficients + self.intercept
         else:
             # Predict when X is more than one variable
-            predictions = X @ self.coefficients + self.intercept
+            predictions = np.dot(X,self.coefficients) + self.intercept
 
         return predictions
 
